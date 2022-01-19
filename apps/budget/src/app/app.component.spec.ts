@@ -1,10 +1,18 @@
 import { TestBed } from '@angular/core/testing';
+import { EnvironmentModule } from '@myth-tools/utils/environment';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            declarations: [AppComponent]
+            declarations: [AppComponent],
+            imports: [
+                EnvironmentModule.forRoot({
+                    production: false,
+                    version: '0.0.0-development',
+                    firebase: { projectId: '', appId: '', apiKey: '', authDomain: '' }
+                })
+            ]
         }).compileComponents();
     });
 

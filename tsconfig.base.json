@@ -15,7 +15,9 @@
         "skipDefaultLibCheck": true,
         "baseUrl": ".",
         "paths": {
-            "@myth-tools/ui-shared": ["libs/ui-shared/src/index.ts"]
+            "@myth-tools/feature/firebase": ["libs/feature/firebase/src/index.ts"],
+            "@myth-tools/ui/shared": ["libs/ui/shared/src/index.ts"],
+            "@myth-tools/utils/environment": ["libs/utils/environment/src/index.ts"]
         }
     },
     "exclude": ["node_modules", "tmp"]

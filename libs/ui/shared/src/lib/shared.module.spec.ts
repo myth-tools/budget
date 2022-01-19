@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { SharedModule } from './ui-shared.module';
+import { SharedModule } from './shared.module';
 
 describe('MaterialModule', () => {
     beforeEach(async () => {
