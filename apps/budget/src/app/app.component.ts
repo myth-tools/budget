@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { environment } from '../environments/environment';
+import { Component, Inject } from '@angular/core';
+import { Environment, ENVIRONMENT } from '@myth-tools/utils/environment';
 
 @Component({
     selector: 'myth-tools-root',
@@ -7,5 +7,7 @@ import { environment } from '../environments/environment';
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-    version = environment.version;
+    public version = this.environment.version;
+
+    constructor(@Inject(ENVIRONMENT) private readonly environment: Environment) {}
 }
