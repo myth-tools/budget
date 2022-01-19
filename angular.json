@@ -66,12 +66,6 @@
                     },
                     "defaultConfiguration": "development"
                 },
-                "extract-i18n": {
-                    "builder": "@angular-devkit/build-angular:extract-i18n",
-                    "options": {
-                        "browserTarget": "budget:build"
-                    }
-                },
                 "lint": {
                     "builder": "@nrwl/linter:eslint",
                     "options": {
@@ -95,7 +89,7 @@
                     }
                 }
             },
-            "tags": []
+            "tags": ["type:app"]
         }
     }
 }

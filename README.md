@@ -1,1 +1,3 @@
-@myth-tools/budget
+# @myth-tools/budget
+
+Personal budgeting application

@@ -13,8 +13,28 @@
                         "allow": [],
                         "depConstraints": [
                             {
-                                "sourceTag": "*",
+                                "sourceTag": "type:app",
+                                "onlyDependOnLibsWithTags": ["type:feature", "type:utils", "type:models"]
+                            },
+                            {
+                                "sourceTag": "type:feature",
+                                "onlyDependOnLibsWithTags": ["type:data-access", "type:ui", "type:utils", "type:models"]
+                            },
+                            {
+                                "sourceTag": "type:data-access",
+                                "onlyDependOnLibsWithTags": ["type:utils", "type:models"]
+                            },
+                            {
+                                "sourceTag": "type:ui",
+                                "onlyDependOnLibsWithTags": ["type:ui", "type:utils", "type:models"]
+                            },
+                            {
+                                "sourceTag": "type:utils",
                                 "onlyDependOnLibsWithTags": ["*"]
+                            },
+                            {
+                                "sourceTag": "type:models",
+                                "onlyDependOnLibsWithTags": ["type:models", "type:utils"]
                             }
                         ]
                     }
