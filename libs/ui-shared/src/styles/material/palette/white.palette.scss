@@ -1,0 +1,34 @@
+@use '../variables' as vars;
+
+$white-palette: (
+    50: #ffffff,
+    100: #ffffff,
+    200: #ffffff,
+    300: #ffffff,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #ffffff,
+    A200: #ffffff,
+    A400: #ffffff,
+    A700: #ffffff,
+    contrast: (
+        50: vars.$dark-primary-text,
+        100: vars.$dark-primary-text,
+        200: vars.$dark-primary-text,
+        300: vars.$dark-primary-text,
+        400: vars.$dark-primary-text,
+        500: vars.$dark-primary-text,
+        600: vars.$dark-primary-text,
+        700: vars.$dark-primary-text,
+        800: vars.$dark-primary-text,
+        900: vars.$dark-primary-text,
+        A100: vars.$dark-primary-text,
+        A200: vars.$dark-primary-text,
+        A400: vars.$dark-primary-text,
+        A700: vars.$dark-primary-text
+    )
+);
