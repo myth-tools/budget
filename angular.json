@@ -1,0 +1,124 @@
+{
+  "version": 1,
+  "projects": {
+    "budget": {
+      "projectType": "application",
+      "root": "apps/budget",
+      "sourceRoot": "apps/budget/src",
+      "prefix": "myth-tools",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/budget",
+            "index": "apps/budget/src/index.html",
+            "main": "apps/budget/src/main.ts",
+            "polyfills": "apps/budget/src/polyfills.ts",
+            "tsConfig": "apps/budget/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": ["apps/budget/src/favicon.ico", "apps/budget/src/assets"],
+            "styles": ["apps/budget/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/budget/src/environments/environment.ts",
+                  "with": "apps/budget/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "budget:build:production"
+            },
+            "development": {
+              "browserTarget": "budget:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "budget:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/budget/src/**/*.ts",
+              "apps/budget/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/budget"],
+          "options": {
+            "jestConfig": "apps/budget/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": []
+    },
+    "budget-e2e": {
+      "root": "apps/budget-e2e",
+      "sourceRoot": "apps/budget-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/budget-e2e/cypress.json",
+            "devServerTarget": "budget:serve:development"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "budget:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/budget-e2e/**/*.{js,ts}"]
+          }
+        }
+      },
+      "tags": [],
+      "implicitDependencies": ["budget"]
+    }
+  }
+}
