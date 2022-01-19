@@ -1,0 +1,23 @@
+@use '@angular/material' as mat;
+
+@import 'palette/blue.palette';
+@import 'palette/red.palette';
+@import 'palette/white.palette';
+
+@include mat.core();
+
+$budget-primary: mat.define-palette($white-palette);
+$budget-accent: mat.define-palette($blue-palette);
+$budget-warn: mat.define-palette($red-palette);
+
+$budget-theme: mat.define-light-theme(
+    (
+        color: (
+            primary: $budget-primary,
+            accent: $budget-accent,
+            warn: $budget-warn
+        )
+    )
+);
+
+@include mat.all-component-themes($budget-theme);
