@@ -15,10 +15,10 @@ describe('AppComponent', () => {
         expect(app).toBeTruthy();
     });
 
-    it(`should have as title 'budget'`, () => {
+    it(`should have version`, () => {
         const fixture = TestBed.createComponent(AppComponent);
         const app = fixture.componentInstance;
 
-        expect(app.title).toEqual('budget');
+        expect(app.version).toEqual('0.0.0-development');
     });
 });

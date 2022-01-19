@@ -5,6 +5,7 @@ on:
     push:
         branches:
             - master
+            - beta
 
 jobs:
     ci:
@@ -44,7 +45,7 @@ jobs:
         name: release
         runs-on: ubuntu-latest
         needs: [ci]
-        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        if: github.event_name == 'push'
 
         steps:
             - name: checkout
@@ -70,13 +71,19 @@ jobs:
                       @semantic-release/changelog
                       @semantic-release/git
                       semantic-release-plugin-update-version-in-files
-                  branches: master
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-            - name: deploy
-              if: steps.semantic.outputs.new_release_published == 'true'
+            - name: deploy release to production
+              if: steps.semantic.outputs.new_release_published == 'true' && github.ref_name == 'master'
               env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              run: npm run ng deploy
+                  PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+              run: npm run ng deploy -- --cname=budget.myth-tools.com
+
+            - name: deploy release to beta
+              if: steps.semantic.outputs.new_release_published == 'true' && github.ref_name == 'beta'
+              env:
+                  PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+              run:
+                  npm run ng -- deploy --cname=budget.beta.myth-tools.com --repo=https://github.com/myth-tools/budget.beta.git
