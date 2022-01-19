@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/myth-tools/budget/compare/v1.1.0...v1.2.0) (2022-01-19)
+
+
+### Features
+
+* add firebase module ([#2](https://github.com/myth-tools/budget/issues/2)) ([1fa391a](https://github.com/myth-tools/budget/commit/1fa391a8f9f1935ac4c465435bcf40d8d684fcac))
+
 # [1.1.0](https://github.com/myth-tools/budget/compare/v1.0.0...v1.1.0) (2022-01-19)
 
 
