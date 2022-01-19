@@ -1,4 +1,5 @@
 # Add files here to ignore them from prettier formatting
 
-/dist
-/coverage
+.output
+package-lock.json
+CHANGELOG.md
